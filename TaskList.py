@@ -12,3 +12,6 @@ class TaskList(object):
                 return task
         print "no task of that id is found in the task list"
         return None
+
+    def add(self, task):
+        self.task_list.append(task)
