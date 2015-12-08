@@ -2,60 +2,247 @@
   "Leafs":
     [
       {
-        "id":"1",
-        "lable":"hi",
-        "description":"yo",
-        "original_hours":"yolo",
-        "revised_hours":"yolo",
-        "percent_complete":"yolo",
-        "est_remaining_hrs":"yolo",
-        "est_remaining_workdays":"yolo",
+        "id":1,
+        "label":"Pool Base",
+        "description":"Lay down cement for the pool",
+        "original_hours":"10",
+        "revised_hours":"9",
+        "percent_complete":"25",
+        "est_remaining_hrs":"5",
+        "est_remaining_workdays":"1",
         "engineers":[ 1,2,3 ]
       },
       {
-        "id":"1",
-        "lable":"hi",
-        "description":"yo",
-        "original_hours":"yolo",
-        "revised_hours":"yolo",
-        "percent_complete":"yolo",
-        "est_remaining_hrs":"yolo",
-        "est_remaining_workdays":"yolo",
+        "id":2,
+        "label":"pool water",
+        "description":"add water to the pool",
+        "original_hours":"4",
+        "revised_hours":"4",
+        "percent_complete":"0",
+        "est_remaining_hrs":"4",
+        "est_remaining_workdays":"1",
         "engineers":[ 1,2,3 ]
       },
       {
-        "id":"1",
-        "lable":"hi",
-        "description":"yo",
-        "original_hours":"yolo",
-        "revised_hours":"yolo",
-        "percent_complete":"yolo",
-        "est_remaining_hrs":"yolo",
-        "est_remaining_workdays":"yolo",
+        "id":3,
+        "label":"Install Diving Board",
+        "description":"Install the pool diving board",
+        "original_hours":"2",
+        "revised_hours":"2",
+        "percent_complete":"0",
+        "est_remaining_hrs":"2",
+        "est_remaining_workdays":"1",
         "engineers":[ 1,2,3 ]
       },
       {
-        "id":"1",
-        "lable":"hi",
-        "description":"yo",
-        "original_hours":"yolo",
+        "id":4,
+        "label":"Grass",
+        "description":"Plant Grass",
+        "original_hours":"15",
+        "revised_hours":"16",
+        "percent_complete":"30",
+        "est_remaining_hrs":"10",
+        "est_remaining_workdays":"2",
+        "engineers":[ 3 ]
+      },
+      {
+        "id":5,
+        "label":"Trees",
+        "description":"Plan trees around the house",
+        "original_hours":"20",
         "revised_hours":"yolo",
         "percent_complete":"yolo",
         "est_remaining_hrs":"yolo",
         "est_remaining_workdays":"yolo",
+        "engineers":[ 1 ]
+      },
+      {
+        "id":6,
+        "label":"Foundation",
+        "description":"Lay Foundation for basement of house",
+        "original_hours":"45",
+        "revised_hours":"43",
+        "percent_complete":"25",
+        "est_remaining_hrs":"31",
+        "est_remaining_workdays":"4",
+        "engineers":[ 1,5,6 ]
+      },
+      {
+        "id":7,
+        "label":"Plumbing",
+        "description":"Complete the plumbing in the basement",
+        "original_hours":"15",
+        "revised_hours":"16",
+        "percent_complete":"0",
+        "est_remaining_hrs":"16",
+        "est_remaining_workdays":"2",
+        "engineers":[ 6 ]
+      },
+      {
+        "id":8,
+        "label":"Walls",
+        "description":"Put up the walls of the basement",
+        "original_hours":"20",
+        "revised_hours":"20",
+        "percent_complete":"0",
+        "est_remaining_hrs":"20",
+        "est_remaining_workdays":"3",
+        "engineers":[ 2,3 ]
+      },
+      {
+        "id":9,
+        "label":"Kitchen Appliances",
+        "description":"Put all appliances in the Kitchen",
+        "original_hours":"8",
+        "revised_hours":"7",
+        "percent_complete":"50",
+        "est_remaining_hrs":"4",
+        "est_remaining_workdays":"1",
+        "engineers":[ 3 ]
+      },
+      {
+        "id":10,
+        "label":"Paint",
+        "description":"Paint the main floor, all the walls",
+        "original_hours":"25",
+        "revised_hours":"20",
+        "percent_complete":"25",
+        "est_remaining_hrs":"5",
+        "est_remaining_workdays":"1",
+        "engineers":[ 4,5 ]
+      },
+      {
+        "id":11,
+        "label":"Carpet",
+        "description":"Install carpet all over the main floor",
+        "original_hours":"10",
+        "revised_hours":"10",
+        "percent_complete":"50",
+        "est_remaining_hrs":"5",
+        "est_remaining_workdays":"1",
         "engineers":[ 1,2,3 ]
       },
       {
-        "id":"1",
-        "lable":"hi",
-        "description":"yo",
-        "original_hours":"yolo",
-        "revised_hours":"yolo",
-        "percent_complete":"yolo",
-        "est_remaining_hrs":"yolo",
-        "est_remaining_workdays":"yolo",
+        "id":12,
+        "label":"Furniture",
+        "description":"Place Furniture",
+        "original_hours":"4",
+        "revised_hours":"4",
+        "percent_complete":"0",
+        "est_remaining_hrs":"4",
+        "est_remaining_workdays":"1",
         "engineers":[ 1,2,3 ]
       },
-
-    ]
+      {
+        "id":13,
+        "label":"Doors",
+        "description":"Install garage doors",
+        "original_hours":"8",
+        "revised_hours":"8",
+        "percent_complete":"100",
+        "est_remaining_hrs":"0",
+        "est_remaining_workdays":"0",
+        "engineers":[ 3 ]
+      },
+      {
+        "id":14,
+        "label":"Paint",
+        "description":"Paint the walls of the garage",
+        "original_hours":"8",
+        "revised_hours":"9",
+        "percent_complete":"50",
+        "est_remaining_hrs":"4",
+        "est_remaining_workdays":"1",
+        "engineers":[ 2,3 ]
+      },
+      {
+        "id":15,
+        "label":"Decorate",
+        "description":"Add tables and decorations",
+        "original_hours":"4",
+        "revised_hours":"4",
+        "percent_complete":"0",
+        "est_remaining_hrs":"4",
+        "est_remaining_workdays":"1",
+        "engineers":[ 1,2 ]
+      }
+    ],
+  "Parallel":[
+    {
+      "id":16,
+      "label":"Yard",
+      "description":"All the yard tasks",
+      "children":[19,4,5]
+    },
+    {
+      "id":17,
+      "label":"Main Floor",
+      "description":"All the main floor tasks",
+      "children":[9,10,11,12]
+    },
+    {
+      "id":18,
+      "label":"House",
+      "description":"House Project, highest node",
+      "children":[16,20,21]
+    }
+  ],
+  "Sequential":[
+    {
+      "id":19,
+      "label":"Pool",
+      "description":"All the pool tasks",
+      "children":[1,2,3]
+    },
+    {
+      "id":22,
+      "label":"Basement",
+      "description":"All the basement tasks",
+      "children":[6,7,8]
+    },
+    {
+      "id":20,
+      "label":"Insid",
+    "description":"Inside thehoue tasks",
+      "children":[22,17]
+    },
+    {
+      "id":21,
+      "label":"Garage",
+      "description":"All the garage tasks",
+      "children":[13,14,15]
+    }
+  ],
+  "engineers":[
+    {
+      "id":1,
+      "name":"Jason",
+      "Available_hours":5
+    },
+    {
+      "id":2,
+      "name":"Harry",
+      "Available_hours":8
+    },
+    {
+      "id":3,
+      "name":"Tyson",
+      "Available_hours":4
+    },
+    {
+      "id":4,
+      "name":"Agro",
+      "Available_hours":5
+    },
+    {
+      "id":5,
+      "name":"Rodney",
+      "Available_hours":6
+    },
+    {
+      "id":6,
+      "name":"Peter",
+      "Available_hours":7
+    }
+  ]
 }
