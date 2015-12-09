@@ -132,6 +132,10 @@ class TestProject(unittest.TestCase):
         self.assertEqual(len(project.engr_list), 1)
         self.assertEqual(project.get_engineer(88), engineer)
 
+    def test_get_estimated_work_days_leaf(self):
+        days = self.project.get_estimated_work_days(4)
+        self.assertEqual(2,days)
+
     def test_get_estimated_work_days_sequential_parent(self):
         days_to_completion = self.project.get_estimated_work_days(22) # Sequential Task Basement
         self.assertEqual(9,days_to_completion)
@@ -146,7 +150,19 @@ class TestProject(unittest.TestCase):
 
     def test_get_percent_complete_parallel_parent(self):
         percent_left = self.project.get_percent_complete(16)
-        self.assertEqual(16.0, percent_left)
+        self.assertEqual(12.78, percent_left)
+
+    def test_get_total_hours_leaf(self):
+        total_hours = self.project.get_estimated_total_hours(5)
+        self.assertEqual(21,total_hours)
+
+    def test_get_total_hours_sequential_parent(self):
+        total_hours = self.project.get_estimated_total_hours(19)
+        self.assertEqual(11, total_hours)
+
+    def test_get_total_hours_parallel_parent(self):
+        total_hours = self.project.get_estimated_total_hours(18)
+        self.assertEqual(135,total_hours)
 
 
 

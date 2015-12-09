@@ -34,7 +34,8 @@ class Project(object):
 
 
     def get_estimated_total_hours(self, taskid):
-        pass
+        task = self.get_task(taskid)
+        return task.get_remaining_hours()
 
     def get_percent_complete(self, taskid):
         task = self.get_task(taskid)

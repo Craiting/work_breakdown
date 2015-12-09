@@ -9,7 +9,6 @@ class Parallel(TaskComponent):
         self.subtask_ids = subtasks
         self.subtasks = []
 
-
     def __repr__(self):
         return "para: %d | %s" % (self.id, self.label)
 
@@ -36,4 +35,4 @@ class Parallel(TaskComponent):
         for task in self.subtasks:
             total_percent = total_percent + task.get_percent_completion()
         percent = float(total_percent)/float(task_length)
-        return percent
+        return round(percent, 2)

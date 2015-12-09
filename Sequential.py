@@ -34,4 +34,4 @@ class Sequential(TaskComponent):
         for task in self.subtasks:
             total_percent = total_percent + task.get_percent_completion()
         percent = float(total_percent)/float(task_length)
-        return percent.toFixed(2)
+        return round(percent, 2)
