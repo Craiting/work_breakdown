@@ -13,6 +13,10 @@ class Leaf(TaskComponent):
     def __repr__(self):
         return "task: %d | %s" % (self.id, self.label)
 
+    def __str__(self):
+        return "task: %d | %s" % (self.id, self.label)
+        
+
     def initialize(self, project):
         engrs = self.engineers
         self.engineers = []
@@ -30,3 +34,9 @@ class Leaf(TaskComponent):
 
     def get_percent_completion(self):
         return float(self.percent_complete)
+
+    def get_subtasks(self):
+        return [self]
+
+    def get_engineers(self):
+        return[self.engineers]

@@ -5,6 +5,7 @@ from Leaf import Leaf
 from Parallel import Parallel
 from Sequential import Sequential
 from Engineer import Engineer
+from EngineerTeam import EngineerTeam
 
 
 class TestFileLoader(unittest.TestCase):
@@ -101,6 +102,48 @@ class TestSequentialTask(unittest.TestCase):
         self.assertEqual([t1,t2,t3], parallel_task.subtasks)
 
 
+class TestEngineer(unittest.TestCase):
+
+    def setUp(self):
+        unittest.TestCase.setUp(self)
+        self.project = FileLoader.read_from_json('houseproject.json')
+
+
+    def test_create_engineer(self):
+        engr = Engineer(1,"eStephron",7)
+        self.assertTrue(Engineer == type(engr))
+        self.assertEqual(1,engr.id)
+        self.assertEqual("eStephron",engr.name)
+        self.assertEqual(7,engr.available_hours)
+
+    def test_get_tasks_specific_to_engineer(self):
+        e1 = self.project.get_engineer(3)
+        e1_tasks = e1.get_tasks(self.project) # returns list of task ids assigned to an engineer
+        self.assertEqual([1, 2, 3, 4, 8, 9, 11, 12, 13, 14], e1_tasks)
+
+
+
+class TestEngineerTeam(unittest.TestCase):
+
+    def test_create_engineer_team(self):
+        e1 = Engineer(1,"JC", 4)
+        e2 = Engineer(2,"JC", 2)
+        e3 = Engineer(3,"JC", 6)
+        e4 = Engineer(4,"JC", 6)
+        team = EngineerTeam([e1,e2,e3,e4])
+        self.assertTrue(EngineerTeam == type(team))
+        self.assertEqual(4,len(team.team))
+
+    def test_get_team_available_hours(self):
+        e1 = Engineer(1,"JC", 4)
+        e2 = Engineer(2,"JC", 2)
+        e3 = Engineer(3,"JC", 6)
+        e4 = Engineer(4,"JC", 6)
+        team = EngineerTeam([e1,e2,e3,e4])
+        available_hours = team.get_team_availability()
+        self.assertEqual(18, available_hours)
+
+
 class TestProject(unittest.TestCase):
 
     def setUp(self):
@@ -164,6 +207,15 @@ class TestProject(unittest.TestCase):
         total_hours = self.project.get_estimated_total_hours(18)
         self.assertEqual(135,total_hours)
 
+    def test_get_estimate_schedules(self):
+        schedule = self.project.estimate_schedules(19)
+        self.assertTrue(len(schedule) > 0)
+
+    def test_output_to_file(self):
+        self.project.print_section(16)
+        f = open('output.txt', 'r')
+        txt = f.read()
+        self.assertTrue('root:' in txt)
 
 
 

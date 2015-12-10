@@ -16,22 +16,40 @@ class Sequential(TaskComponent):
     def __repr__(self):
         return "seq: %d | %s" % (self.id, self.label)
 
+    def __str__(self):
+        return "seq: %d | %s" % (self.id, self.label)
+
     def get_work_days_left(self):
         total_workdays = 0
-        for task in self.subtasks:
-            total_workdays = total_workdays + task.get_work_days_left()
+        if len(self.subtasks) > 0 :
+            for task in self.subtasks:
+                total_workdays = total_workdays + task.get_work_days_left()
         return total_workdays
 
     def get_remaining_hours(self):
         total_hours = 0
-        for task in self.subtasks:
-            total_hours = total_hours + task.get_remaining_hours()
+        if len(self.subtasks) > 0 :
+            for task in self.subtasks:
+                total_hours = total_hours + task.get_remaining_hours()
         return total_hours
 
     def get_percent_completion(self):
         task_length = len(self.subtasks)
         total_percent = 0
-        for task in self.subtasks:
-            total_percent = total_percent + task.get_percent_completion()
+        if len(self.subtasks) > 0 :
+            for task in self.subtasks:
+                total_percent = total_percent + task.get_percent_completion()
         percent = float(total_percent)/float(task_length)
         return round(percent, 2)
+
+    def get_subtasks(self):
+        subtasks = []
+        for task in self.subtasks:
+            subtasks.extend(task.get_subtasks())
+        return subtasks
+
+    def get_engineers(self):
+        engineers = []
+        for task in self.subtasks:
+            engineers.extend(task.get_engineers())
+        return engineers

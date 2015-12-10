@@ -48,3 +48,33 @@ class Project(object):
     def get_estimated_work_days(self, taskid):
         task = self.get_task(taskid)
         return task.get_work_days_left()
+
+    def get_subtasks_by_id(self, taskid):
+        task = self.get_task(taskid)
+        return task.get_subtasks()
+
+    def estimate_schedules(self, taskid):
+        task = self.get_task(taskid)
+        days_to_completion = task.get_work_days_left()
+        subtasks = task.get_subtasks()
+        length = len(subtasks)
+        engineers = task.get_engineers()
+        s1 = subtasks[:length/2]
+        s2 = subtasks[length/2:]
+        s3 = subtasks[:length/4]
+        schedule = {}
+        for day in range(0, days_to_completion):
+            detailed_day = {}
+            detailed_day['tasks'] = subtasks
+            detailed_day['engineers'] = engineers
+            schedule[day] = detailed_day
+        return schedule
+
+    def print_section(self, taskid): # starts printing from taskid being the root node
+        task = self.get_task(taskid)
+        f = open('output.txt', 'w')
+        f.write('root: ')
+        f.write(str(task))
+        subtasks = task.get_subtasks()
+        f.write('\nsubtasks: ')
+        f.write(str(subtasks))
