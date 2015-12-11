@@ -1,6 +1,6 @@
 
 
-class TaskComponent(object):
+class TaskComponent(object): # Abstract Base Class
 
     def __init__(self, id, label, description, original_hours, revised_hours, percent_complete, est_remaining_hrs, est_remaining_workdays):
         self.id = id

@@ -41,10 +41,6 @@ class Project(object):
         task = self.get_task(taskid)
         return task.get_percent_completion()
 
-    def get_estimated_remaining_hours(self, taskid):
-        task = self.get_task(taskid)
-        return task.get_remaining_hours
-
     def get_estimated_work_days(self, taskid):
         task = self.get_task(taskid)
         return task.get_work_days_left()
